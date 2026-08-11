@@ -1,0 +1,14 @@
+:root {
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-off-white: #faf9f6;
+  --color-gold: #B0921B;
+  --color-gold-dark: #B0921B;
+  --color-gray: #6b6b66;
+  --color-border: #e8e6df;
+
+  --font-heading: 'Albert Sans', sans-serif;
+  --font-body: 'Albert Sans', sans-serif;
+
+  --container-max: 1280px;
+}

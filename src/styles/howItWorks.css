@@ -1,0 +1,519 @@
+.how-it-works {
+  background: var(--color-off-white);
+  padding: 140px 0;
+}
+
+.how-it-works-container {
+  width: min(100% - 80px, var(--container-max));
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.how-it-works-heading {
+  max-width: 720px;
+  margin-bottom: 80px;
+}
+
+.how-it-works-label {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  color: var(--color-gold);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.how-it-works-heading h2 {
+  margin: 0;
+
+  color: var(--color-black);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(46px, 5.5vw, 72px);
+
+  line-height: 1.04;
+
+  font-weight: 500;
+
+  letter-spacing: -2px;
+}
+
+.how-it-works-heading h2 span {
+  color: var(--color-gold);
+}
+
+.how-it-works-heading p {
+  max-width: 580px;
+
+  margin: 28px 0 0;
+
+  color: var(--color-gray);
+
+  font-family: var(--font-body);
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.how-it-works-cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+/* =========================================
+   INDIVIDUAL CARD
+========================================= */
+
+.how-card {
+  position: relative;
+
+  min-height: 590px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 32px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 28px;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.how-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 25px 60px rgba(17, 17, 17, 0.08);
+}
+
+
+/* =========================================
+   CARD TOP
+========================================= */
+
+.how-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.how-card-number {
+  color: var(--color-gold);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.how-card-arrow {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 50%;
+
+  color: var(--color-black);
+
+  font-size: 18px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.how-card:hover .how-card-arrow {
+  background: var(--color-gold);
+
+  border-color: var(--color-gold);
+
+  color: var(--color-white);
+}
+
+
+/* =========================================
+   VISUAL AREA
+========================================= */
+
+.how-card-visual {
+  position: relative;
+
+  height: 250px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 30px -32px 35px;
+
+  background: var(--color-off-white);
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   ACCOUNT VISUAL
+========================================= */
+
+.account-circle {
+  width: 95px;
+  height: 95px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--color-black);
+
+  color: var(--color-gold);
+
+  font-size: 36px;
+
+  font-weight: 500;
+
+  box-shadow: 0 20px 40px rgba(17, 17, 17, 0.15);
+}
+
+.account-line {
+  position: absolute;
+
+  bottom: 55px;
+
+  width: 120px;
+  height: 8px;
+
+  border-radius: 10px;
+
+  background: var(--color-black);
+
+  opacity: 0.12;
+}
+
+.account-line.short {
+  bottom: 35px;
+
+  width: 75px;
+}
+
+
+/* =========================================
+   FUND VISUAL
+========================================= */
+
+.fund-card {
+  width: 230px;
+
+  padding: 25px;
+
+  border-radius: 18px;
+
+  background: var(--color-black);
+
+  color: var(--color-white);
+
+  box-shadow: 0 25px 50px rgba(17, 17, 17, 0.2);
+}
+
+.fund-card span {
+  display: block;
+
+  color: var(--color-gold);
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.fund-card strong {
+  display: block;
+
+  margin-top: 35px;
+
+  font-size: 28px;
+
+  font-weight: 500;
+}
+
+.fund-card small {
+  display: block;
+
+  margin-top: 8px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   BANKING VISUAL
+========================================= */
+
+.banking-visual {
+  background: var(--color-black);
+}
+
+.mini-card {
+  position: relative;
+
+  width: 230px;
+  height: 140px;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background: var(--color-gold);
+
+  color: var(--color-black);
+
+  transform: rotate(-8deg);
+
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.mini-card span {
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.mini-card small {
+  position: absolute;
+
+  bottom: 18px;
+  left: 20px;
+
+  font-size: 11px;
+}
+
+.mini-card-chip {
+  position: absolute;
+
+  top: 55px;
+  left: 20px;
+
+  width: 30px;
+  height: 22px;
+
+  border-radius: 5px;
+
+  background: rgba(17, 17, 17, 0.25);
+}
+
+.payment-check {
+  position: absolute;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--color-white);
+
+  color: var(--color-gold);
+
+  font-size: 25px;
+
+  font-weight: 700;
+
+  transform: translate(80px, 55px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.how-card-content {
+  margin-top: auto;
+}
+
+.how-card-content h3 {
+  margin: 0;
+
+  color: var(--color-black);
+
+  font-family: var(--font-heading);
+
+  font-size: 27px;
+
+  line-height: 1.15;
+
+  font-weight: 500;
+}
+
+.how-card-content p {
+  max-width: 360px;
+
+  margin: 16px 0 0;
+
+  color: var(--color-gray);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   DARK CARD
+========================================= */
+
+.how-card-dark {
+  background: var(--color-black);
+
+  border-color: var(--color-black);
+}
+
+.how-card-dark .how-card-arrow {
+  border-color: rgba(255, 255, 255, 0.2);
+
+  color: var(--color-white);
+}
+
+.how-card-dark .how-card-content h3 {
+  color: var(--color-white);
+}
+
+.how-card-dark .how-card-content p {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .how-it-works {
+    padding: 100px 0;
+  }
+
+  .how-it-works-container {
+    width: min(100% - 50px, var(--container-max));
+  }
+
+  .how-it-works-cards {
+    grid-template-columns: 1fr;
+
+    max-width: 650px;
+  }
+
+  .how-card {
+    min-height: 520px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .how-it-works {
+    padding: 80px 0;
+  }
+
+  .how-it-works-container {
+    width: calc(100% - 32px);
+  }
+
+  .how-it-works-heading {
+    margin-bottom: 50px;
+  }
+
+  .how-it-works-label {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+  .how-it-works-heading h2 {
+    font-size: 42px;
+
+    letter-spacing: -1px;
+  }
+
+  .how-it-works-heading p {
+    font-size: 15px;
+  }
+
+  .how-it-works-cards {
+    gap: 16px;
+  }
+
+  .how-card {
+    min-height: 500px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+  }
+
+  .how-card-visual {
+    height: 220px;
+
+    margin: 25px -25px 30px;
+  }
+
+  .how-card-content h3 {
+    font-size: 24px;
+  }
+
+  .how-card-content p {
+    font-size: 14px;
+  }
+}
