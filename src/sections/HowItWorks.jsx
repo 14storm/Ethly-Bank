@@ -1,14 +1,52 @@
-import "../styles/howItWorks.css";
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import phone1 from '../assets/phone1.png'
+import phone2 from '../assets/phone2.png'
+import phone3 from '../assets/phone3.png'
+import '../styles/howItWorks.css'
 
-const HowItWorks = () => {
+gsap.registerPlugin(ScrollTrigger)
+
+function HowItWorks() {
+  const sectionRef = useRef(null)
+
+  useGSAP(() => {
+    gsap.from('.how-it-works-label, .how-it-works-heading h2, .how-it-works-heading p', {
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.1,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
+    })
+
+    gsap.from('.how-card', {
+      opacity: 0,
+      y: 60,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: '.how-it-works-cards', start: 'top 80%' },
+    })
+
+    gsap.from('.how-card-visual img', {
+      opacity: 0,
+      scale: 1.08,
+      duration: 1,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: '.how-it-works-cards', start: 'top 75%' },
+    })
+  }, { scope: sectionRef })
+
   return (
-    <section className="how-it-works">
+    <section className="how-it-works" ref={sectionRef}>
       <div className="how-it-works-container">
 
         <div className="how-it-works-heading">
-          <span className="how-it-works-label">
-            HOW ETHLY WORKS
-          </span>
+          <span className="how-it-works-label">HOW ETHLY WORKS</span>
 
           <h2>
             Simple banking,
@@ -22,33 +60,21 @@ const HowItWorks = () => {
           </p>
         </div>
 
-
         <div className="how-it-works-cards">
 
           {/* CARD 01 */}
           <article className="how-card">
             <div className="how-card-top">
-              <span className="how-card-number">
-                01
-              </span>
-
-              <span className="how-card-arrow">
-                ↗
-              </span>
+              <span className="how-card-number">01</span>
+              <span className="how-card-arrow">↗</span>
             </div>
 
-            <div className="how-card-visual account-visual">
-              <div className="account-circle">
-                E
-              </div>
-
-              <div className="account-line"></div>
-              <div className="account-line short"></div>
+            <div className="how-card-visual">
+              <img src={phone1} alt="Create your account" className="how-card-image" />
             </div>
 
             <div className="how-card-content">
               <h3>Create your account</h3>
-
               <p>
                 Get started with ETHLY in a few simple steps
                 and set up your account securely.
@@ -56,32 +82,19 @@ const HowItWorks = () => {
             </div>
           </article>
 
-
           {/* CARD 02 */}
           <article className="how-card">
             <div className="how-card-top">
-              <span className="how-card-number">
-                02
-              </span>
-
-              <span className="how-card-arrow">
-                ↗
-              </span>
+              <span className="how-card-number">02</span>
+              <span className="how-card-arrow">↗</span>
             </div>
 
-            <div className="how-card-visual fund-visual">
-              <div className="fund-card">
-                <span>ETHLY</span>
-
-                <strong>₦50,000</strong>
-
-                <small>Added to balance</small>
-              </div>
+            <div className="how-card-visual">
+              <img src={phone2} alt="Fund your account" className="how-card-image" />
             </div>
 
             <div className="how-card-content">
               <h3>Fund your account</h3>
-
               <p>
                 Add money to your ETHLY account and get ready
                 to send, spend, save, and pay.
@@ -89,36 +102,19 @@ const HowItWorks = () => {
             </div>
           </article>
 
-
           {/* CARD 03 */}
           <article className="how-card how-card-dark">
             <div className="how-card-top">
-              <span className="how-card-number">
-                03
-              </span>
-
-              <span className="how-card-arrow">
-                ↗
-              </span>
+              <span className="how-card-number">03</span>
+              <span className="how-card-arrow">↗</span>
             </div>
 
-            <div className="how-card-visual banking-visual">
-              <div className="mini-card">
-                <span>ETHLY</span>
-
-                <div className="mini-card-chip"></div>
-
-                <small>•••• 4821</small>
-              </div>
-
-              <div className="payment-check">
-                ✓
-              </div>
+            <div className="how-card-visual">
+              <img src={phone3} alt="Start banking" className="how-card-image" />
             </div>
 
             <div className="how-card-content">
               <h3>Start banking</h3>
-
               <p>
                 Send money, pay bills, manage your cards,
                 and stay on top of your finances from one place.
@@ -129,7 +125,7 @@ const HowItWorks = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HowItWorks;
+export default HowItWorks

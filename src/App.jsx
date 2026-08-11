@@ -7,6 +7,7 @@ import Cards from './sections/Cards'
 import Footer from './sections/Footer'
 import ChatBot from './components/ChatBot'
 import FinalCta from './sections/FinalCta'
+import BrandStory from './sections/BrandStory'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Security />
       {/* <HowItWorks /> */}
       <Cards />
+      <BrandStory />
       <FinalCta />
       <Footer />
       <ChatBot />

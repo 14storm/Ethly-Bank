@@ -1,0 +1,105 @@
+.brand-story {
+  background: var(--color-white);
+  padding: 130px 0;
+}
+
+.story-container {
+  width: min(100% - 80px, var(--container-max));
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Heading */
+.story-heading {
+  max-width: 700px;
+}
+
+.story-label {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--color-gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.story-title {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+  margin-bottom: 24px;
+}
+
+.story-title .line {
+  display: block;
+}
+
+.story-gold {
+  color: var(--color-gold);
+}
+
+.story-text {
+  max-width: 620px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--color-gray);
+}
+
+/* Video — big, full width, under the text */
+.story-video-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--color-black);
+  aspect-ratio: 16 / 9;
+}
+
+.story-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tablet and up — video gets bigger/wider, still stacked under text */
+@media (min-width: 900px) {
+  .story-container {
+    gap: 60px;
+  }
+
+  .story-video-wrap {
+    aspect-ratio: 21 / 9;
+  }
+}
+
+@media (min-width: 1300px) {
+  .story-video-wrap {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .brand-story {
+    padding: 90px 0;
+  }
+
+  .story-container {
+    width: calc(100% - 32px);
+    gap: 36px;
+  }
+
+  .story-text {
+    font-size: 15px;
+  }
+
+  .story-video-wrap {
+    border-radius: 12px;
+  }
+}

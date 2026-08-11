@@ -2,8 +2,8 @@ import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import phone1 from '../assets/phone1.png'
-import phone2 from '../assets/phone2.png'
+import physicalcard  from '../assets/physicalcard.png'
+import virtualcard from '../assets/virtualcard.png'
 import '../styles/cards.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -15,7 +15,7 @@ const options = [
     title: 'Virtual Card',
     text: 'Ready whenever you are. Make online purchases, subscriptions, and digital payments without needing your physical card.',
     features: ['Instant access', 'Built for online payments'],
-    image: phone1,
+    image: virtualcard,
   },
   {
     key: 'physical',
@@ -23,7 +23,7 @@ const options = [
     title: 'Physical Card',
     text: 'Your everyday Ethly card. Tap, swipe, or withdraw cash wherever your card is accepted.',
     features: ['Contactless payments', 'Use it wherever you go'],
-    image: phone2,
+    image: physicalcard,
   },
 ]
 
