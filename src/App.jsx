@@ -5,6 +5,8 @@ import Security from './sections/Security'
 import HowItWorks from './sections/HowItWorks'
 import Cards from './sections/Cards'
 import Footer from './sections/Footer'
+import ChatBot from './components/ChatBot'
+import FinalCta from './sections/FinalCta'
 
 function App() {
   return (
@@ -13,10 +15,11 @@ function App() {
       <Hero />
       <Features />
       <Security />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <Cards />
+      <FinalCta />
       <Footer />
-      
+      <ChatBot />
     </div>
   )
 }
