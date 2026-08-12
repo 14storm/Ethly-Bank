@@ -42,7 +42,7 @@ function HowItWorks() {
   }, { scope: sectionRef })
 
   return (
-    <section className="how-it-works" ref={sectionRef}>
+    <section className="how-it-works" ref={sectionRef} id='HowItWorks'>
       <div className="how-it-works-container">
 
         <div className="how-it-works-heading">

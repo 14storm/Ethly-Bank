@@ -1,0 +1,41 @@
+.disclaimer-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 34px;
+  z-index: 300;
+  background: #b91c1c;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.disclaimer-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: marquee 22s linear infinite;
+}
+
+.disclaimer-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
