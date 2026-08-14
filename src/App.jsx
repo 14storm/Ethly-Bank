@@ -12,6 +12,7 @@ import ChatBot from "./components/ChatBot";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Security from "./sections/Security";
+import NotFound from "./pages/NotFound";
 
 function Home() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       {/* <Footer />
