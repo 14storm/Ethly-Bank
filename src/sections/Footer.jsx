@@ -134,9 +134,9 @@ function Footer() {
             <p className="footer-address">
               <strong>Lagos</strong>
               <br />
-              1-11 Commercial Avenue
+              11 rehoboth Avenue
               <br />
-              Yaba, Lagos
+              mainland, Lagos
             </p>
           </div>
         </div>

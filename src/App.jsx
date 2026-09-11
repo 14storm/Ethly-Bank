@@ -1,29 +1,31 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import DisclaimerBanner from "./components/DisclaimerBanner";
 import Navbar from "./components/Navbar";
+import ChatBot from "./components/ChatBot";
+
 import Hero from "./sections/Hero";
 import Features from "./sections/Features";
 import Cards from "./sections/Cards";
+import Security from "./sections/Security";
 import BrandStory from "./sections/BrandStory";
 import HowItWorks from "./sections/HowItWorks";
 import FinalCta from "./sections/FinalCta";
 import Footer from "./sections/Footer";
-import ChatBot from "./components/ChatBot";
+
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Security from "./sections/Security";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
-function Home() {
+function LandingPage() {
   return (
     <>
-      <DisclaimerBanner />
       <Hero />
       <Features />
       <Security />
       <Cards />
+      <HowItWorks />
       <BrandStory />
-      {/* <HowItWorks /> */}
       <FinalCta />
       <Footer />
       <ChatBot />
@@ -32,20 +34,22 @@ function Home() {
 }
 
 function App() {
+  const location = useLocation();
+  const isAdminPage = location.pathname.startsWith("/admin");
+
   return (
     <div className="app">
-      <DisclaimerBanner />
-      <Navbar />
+      {!isAdminPage && <DisclaimerBanner />}
+      {!isAdminPage && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-
-      {/* <Footer />
-      <ChatBot /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,13 +1,13 @@
-import { Link } from 'react-router-dom'
-import { ArrowLeft2 } from 'iconsax-react'
-import heroImg from '../assets/hero-portrait.png'
-import '../styles/auth.css'
+import { Link } from "react-router-dom";
+import { ArrowLeft2 } from "iconsax-react";
+import heroImg from "../assets/hero-portrait.png";
+import "../styles/auth.css";
 
 function Login() {
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     // form logic will go here later (validation, API call, etc.)
-    console.log('Login form submitted')
+    console.log("Login form submitted");
   }
 
   return (
@@ -51,7 +51,9 @@ function Login() {
                 <input type="checkbox" />
                 Remember me
               </label>
-              <a href="#" className="auth-link">Forgot password?</a>
+              <a href="#" className="auth-link">
+                Forgot password?
+              </a>
             </div>
 
             <button type="submit" className="btn-gold btn-lg auth-submit">
@@ -60,7 +62,7 @@ function Login() {
           </form>
 
           <p className="auth-switch">
-            Don't have an account?{' '}
+            Don't have an account?{" "}
             <Link to="/register" className="auth-link auth-link-gold">
               Get started
             </Link>
@@ -68,7 +70,7 @@ function Login() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Login
+export default Login;

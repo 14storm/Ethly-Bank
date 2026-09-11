@@ -1,76 +1,78 @@
-import { useRef, useState } from 'react'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import physicalcard  from '../assets/physicalcard.png'
-import virtualcard from '../assets/virtualcard.png'
-import '../styles/cards.css'
+import { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import physicalcard from "../assets/physicalcard.png";
+import virtualcard from "../assets/virtualcard.png";
+import "../styles/cards.css";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const options = [
   {
-    key: 'virtual',
-    number: '01',
-    title: 'Virtual Card',
-    text: 'Ready whenever you are. Make online purchases, subscriptions, and digital payments without needing your physical card.',
-    features: ['Instant access', 'Built for online payments'],
+    key: "virtual",
+    number: "01",
+    title: "Virtual Card",
+    text: "Ready whenever you are. Make online purchases, subscriptions, and digital payments without needing your physical card.",
+    features: ["Instant access", "Built for online payments"],
     image: virtualcard,
   },
   {
-    key: 'physical',
-    number: '02',
-    title: 'Physical Card',
-    text: 'Your everyday Ethly card. Tap, swipe, or withdraw cash wherever your card is accepted.',
-    features: ['Contactless payments', 'Use it wherever you go'],
+    key: "physical",
+    number: "02",
+    title: "Physical Card",
+    text: "Your everyday Ethly card. Tap, swipe, or withdraw cash wherever your card is accepted.",
+    features: ["Contactless payments", "Use it wherever you go"],
     image: physicalcard,
   },
-]
+];
 
 function Cards() {
-  const sectionRef = useRef(null)
-  const [active, setActive] = useState('virtual')
-  const imgRefs = useRef({})
+  const sectionRef = useRef(null);
+  const [active, setActive] = useState("virtual");
+  const imgRefs = useRef({});
 
-  const activeOption = options.find((o) => o.key === active)
+  const activeOption = options.find((o) => o.key === active);
 
-  useGSAP(() => {
-    gsap.from('.cards-label, .cards-heading h2, .cards-heading p', {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
-    })
+  useGSAP(
+    () => {
+      gsap.from(".cards-label, .cards-heading h2, .cards-heading p", {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
+      });
 
-    gsap.from('.cards-showcase', {
-      opacity: 0,
-      y: 40,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: '.cards-showcase', start: 'top 80%' },
-    })
-  }, { scope: sectionRef })
+      gsap.from(".cards-showcase", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".cards-showcase", start: "top 80%" },
+      });
+    },
+    { scope: sectionRef },
+  );
 
   function handleSwitch(key) {
-    if (key === active) return
+    if (key === active) return;
 
     Object.entries(imgRefs.current).forEach(([k, el]) => {
       gsap.to(el, {
         opacity: k === key ? 1 : 0,
         duration: 0.4,
-        ease: 'power2.out',
-      })
-    })
+        ease: "power2.out",
+      });
+    });
 
-    setActive(key)
+    setActive(key);
   }
 
   return (
     <section className="cards-section" ref={sectionRef}>
       <div className="cards-container">
-
         {/* HEADER */}
         <div className="cards-heading">
           <span className="cards-label">ETHLY CARDS</span>
@@ -82,9 +84,8 @@ function Cards() {
           </h2>
 
           <p>
-            Choose the card that works best for you. Use your
-            virtual card for digital payments or carry the
-            physical card wherever you go.
+            Choose the card that works best for you. Use your virtual card for
+            digital payments or carry the physical card wherever you go.
           </p>
         </div>
 
@@ -93,7 +94,7 @@ function Cards() {
           {options.map((o) => (
             <button
               key={o.key}
-              className={`cards-tab ${active === o.key ? 'cards-tab-active' : ''}`}
+              className={`cards-tab ${active === o.key ? "cards-tab-active" : ""}`}
               onClick={() => handleSwitch(o.key)}
             >
               {o.title}
@@ -103,27 +104,34 @@ function Cards() {
 
         {/* TOGGLE — mobile */}
         <div className="cards-toggle-wrap">
-          <span className={`toggle-label ${active === 'physical' ? 'toggle-label-active' : ''}`}>
+          <span
+            className={`toggle-label ${active === "physical" ? "toggle-label-active" : ""}`}
+          >
             Physical
           </span>
 
           <button
             className="cards-toggle"
             role="switch"
-            aria-checked={active === 'virtual'}
-            onClick={() => handleSwitch(active === 'virtual' ? 'physical' : 'virtual')}
+            aria-checked={active === "virtual"}
+            onClick={() =>
+              handleSwitch(active === "virtual" ? "physical" : "virtual")
+            }
           >
-            <span className={`cards-toggle-knob ${active === 'virtual' ? 'knob-right' : 'knob-left'}`} />
+            <span
+              className={`cards-toggle-knob ${active === "virtual" ? "knob-right" : "knob-left"}`}
+            />
           </button>
 
-          <span className={`toggle-label ${active === 'virtual' ? 'toggle-label-active' : ''}`}>
+          <span
+            className={`toggle-label ${active === "virtual" ? "toggle-label-active" : ""}`}
+          >
             Virtual
           </span>
         </div>
 
         {/* SHOWCASE */}
         <div className="cards-showcase">
-
           <div className="cards-image-wrapper">
             {options.map((o) => (
               <img
@@ -149,11 +157,10 @@ function Cards() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Cards
+export default Cards;

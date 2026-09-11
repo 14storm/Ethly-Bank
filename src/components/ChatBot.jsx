@@ -1,91 +1,106 @@
-import { useState, useRef } from 'react'
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import { MessageQuestion, CloseCircle, Send2, CloseSquare } from 'iconsax-react'
-import '../styles/chatbot.css'
+import { useState, useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import {
+  MessageQuestion,
+  CloseCircle,
+  Send2,
+  CloseSquare,
+} from "iconsax-react";
+import "../styles/chatbot.css";
 
 const canned = [
   "Thanks for reaching out! A member of our team will be with you shortly.",
   "Great question — you can open an Ethly account in under 2 minutes.",
   "We're here to help with transfers, bills, and account setup.",
   "You can reach us anytime at help@ethlybank.com too.",
-]
+];
 
 function ChatBot() {
-  const [open, setOpen] = useState(false)
-  const [showIntro, setShowIntro] = useState(true)
+  const [open, setOpen] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
   const [messages, setMessages] = useState([
-    { from: 'bot', text: "Hi 👋 I'm Ethly's assistant. How can I help you today?" },
-  ])
-  const [input, setInput] = useState('')
-  const panelRef = useRef(null)
-  const buttonRef = useRef(null)
-  const introRef = useRef(null)
-  const messagesEndRef = useRef(null)
+    {
+      from: "bot",
+      text: "Hi 👋 I'm Ethly's assistant. How can I help you today?",
+    },
+  ]);
+  const [input, setInput] = useState("");
+  const panelRef = useRef(null);
+  const buttonRef = useRef(null);
+  const introRef = useRef(null);
+  const messagesEndRef = useRef(null);
 
   useGSAP(() => {
     if (open && panelRef.current) {
       gsap.fromTo(
         panelRef.current,
         { opacity: 0, y: 20, scale: 0.96 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'power3.out' }
-      )
+        { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "power3.out" },
+      );
     }
-  }, [open])
+  }, [open]);
 
   useGSAP(() => {
     if (showIntro && introRef.current) {
       gsap.fromTo(
         introRef.current,
         { opacity: 0, x: 15, scale: 0.9 },
-        { opacity: 1, x: 0, scale: 1, duration: 0.5, delay: 1.2, ease: 'back.out(1.7)' }
-      )
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.5,
+          delay: 1.2,
+          ease: "back.out(1.7)",
+        },
+      );
     }
-  }, [showIntro])
+  }, [showIntro]);
 
   function toggleOpen() {
     if (buttonRef.current) {
       gsap.to(buttonRef.current, {
         rotate: open ? 0 : 90,
         duration: 0.3,
-        ease: 'power2.out',
-      })
+        ease: "power2.out",
+      });
     }
-    setOpen((prev) => !prev)
-    setShowIntro(false)
+    setOpen((prev) => !prev);
+    setShowIntro(false);
   }
 
   function dismissIntro(e) {
-    e.stopPropagation()
+    e.stopPropagation();
     gsap.to(introRef.current, {
       opacity: 0,
       x: 15,
       scale: 0.9,
       duration: 0.25,
-      ease: 'power2.in',
+      ease: "power2.in",
       onComplete: () => setShowIntro(false),
-    })
+    });
   }
 
   function sendMessage(e) {
-    e.preventDefault()
-    if (!input.trim()) return
+    e.preventDefault();
+    if (!input.trim()) return;
 
-    const userMsg = { from: 'user', text: input }
-    setMessages((prev) => [...prev, userMsg])
-    setInput('')
+    const userMsg = { from: "user", text: input };
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
 
     setTimeout(() => {
-      const reply = canned[Math.floor(Math.random() * canned.length)]
-      setMessages((prev) => [...prev, { from: 'bot', text: reply }])
+      const reply = canned[Math.floor(Math.random() * canned.length)];
+      setMessages((prev) => [...prev, { from: "bot", text: reply }]);
       setTimeout(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-      }, 50)
-    }, 900)
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+    }, 900);
 
     setTimeout(() => {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-    }, 50)
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
   }
 
   return (
@@ -105,7 +120,7 @@ function ChatBot() {
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`chatbot-bubble ${m.from === 'user' ? 'bubble-user' : 'bubble-bot'}`}
+                className={`chatbot-bubble ${m.from === "user" ? "bubble-user" : "bubble-bot"}`}
               >
                 {m.text}
               </div>
@@ -130,17 +145,26 @@ function ChatBot() {
 
       {!open && showIntro && (
         <div className="chatbot-intro" ref={introRef} onClick={toggleOpen}>
-          <button className="chatbot-intro-close" onClick={dismissIntro} aria-label="Dismiss">
+          <button
+            className="chatbot-intro-close"
+            onClick={dismissIntro}
+            aria-label="Dismiss"
+          >
             <CloseSquare size={14} color="#6b6b66" />
           </button>
           <p>
-            Hey! 👋 I'm your Ethly assistant.<br />
+            Hey! 👋 I'm your Ethly assistant.
+            <br />
             Got questions? Ask me anything.
           </p>
         </div>
       )}
 
-      <button className="chatbot-fab" onClick={toggleOpen} aria-label="Open chat">
+      <button
+        className="chatbot-fab"
+        onClick={toggleOpen}
+        aria-label="Open chat"
+      >
         <span ref={buttonRef} className="chatbot-fab-icon">
           {open ? (
             <CloseCircle size={26} color="#111111" variant="Bold" />
@@ -150,7 +174,7 @@ function ChatBot() {
         </span>
       </button>
     </div>
-  )
+  );
 }
 
-export default ChatBot
+export default ChatBot;
