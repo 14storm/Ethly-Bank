@@ -24,7 +24,7 @@ function LandingPage() {
       <Features />
       <Security />
       <Cards />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <BrandStory />
       <FinalCta />
       <Footer />
